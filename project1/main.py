@@ -1,7 +1,6 @@
 import spacy
 from spacy import displacy
-import en_core_web_sm
-nlp = en_core_web_sm.load()
+nlp = spacy.load("en_core_web_sm)"
 from spacy.matcher import Matcher
 import re
 from nltk.corpus import wordnet
