@@ -1,7 +1,6 @@
-# cs5293sp21-project1
-##**Name: Anjali Reddy Tippana**
+**Name: Anjali Reddy Tippana**
 
-##**Project descripiton:**
+**Project descripiton:**
 
 In this project, I'm going to redact sensitive details like names, genders, dates, phones, concepts in documents such as police reports, court transcripts, and hospital records all containing sensitive information.  
 
@@ -51,7 +50,7 @@ Dates in the format of 12/12/1997', '01-12-87', '06/11/86', 'Oct 21, 2014', 'Nov
 
 Phone numbers in the format of '(405) 666 7959', '123-456-7569', '(456) 708-1234', '123.456.7569' are redacted. 
 
-##**Functions used:**
+**Functions used:**
 
 **names(nlp_doc):**
  
@@ -87,11 +86,6 @@ https://towardsdatascience.com/named-entity-recognition-with-nltk-and-spacy-8c4a
 https://spacy.io/usage/rule-based-matching#matcher
 https://docs.github.com/en/github/writing-on-github/basic-writing-and-formatting-syntax
 https://stackoverflow.com/questions/5574702/how-to-print-to-stderr-in-python
-
-
-
-
-
 
 
 
