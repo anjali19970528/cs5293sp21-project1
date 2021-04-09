@@ -1,12 +1,11 @@
 import spacy
-from spacy import displacy
-nlp = spacy.load("en_core_web_sm)"
 from spacy.matcher import Matcher
 import re
 from nltk.corpus import wordnet
 from nltk.tokenize import sent_tokenize
 import sys
 
+nlp = spacy.load("en_core_web_sm")
 
 def names(nlp_doc):
     doc = nlp(nlp_doc)
