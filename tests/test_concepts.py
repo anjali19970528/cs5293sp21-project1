@@ -6,5 +6,5 @@ import main
 
 sample_doc="He is a king. His name is abc. He is the king of xyz dynasty"
 def test_concept():
-    red_concepts = main.concept(sample_doc)
+    red_concepts = main.concept(sample_doc,"king")
     assert len(red_concepts[1]) == 2
