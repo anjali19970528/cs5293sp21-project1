@@ -22,6 +22,8 @@ pipenv install matcher
 
 pipenv install nltk 
 
+pipenv install pytest
+
 **command used to run:**
 
 pipenv run python redactor.py --input '*.txt' \
