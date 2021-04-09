@@ -66,7 +66,8 @@ if __name__ == '__main__':
 #             print("this is concept pattern ++++++++++++++++++++++++++++++++++++{}\n".format(result_dict["concepts"]))
 
         if args.stats:
-            print(result_dict)
+           # print(result_dict)
+            file_summary += "+++++++++++++++++the redacted summary report for this {} file ++++++++++++++++++\n".format(file)
             file_summary += main.stats(result_dict)
             
             if args.output:            

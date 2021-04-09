@@ -79,11 +79,19 @@ def concept(nlp_doc,concept_name):
 def redacted_doc(result_dict,nlp_doc):
     unic_char = '\u2588'
     total_redacted_list=[]
+    phones_list=[]
     for k,v in result_dict.items():
-        total_redacted_list+=v 
+        if k in ['phones']:
+            phones_list += v
+        else:
+            total_redacted_list+=v 
     for i,j in enumerate(total_redacted_list):
         j= r'\b' + j + r'\b'
+#         print(j)
         nlp_doc=re.sub(j,unic_char,nlp_doc)
+    if len(phones_list) > 0:
+        for phone_no in phones_list:
+            nlp_doc = nlp_doc.replace(phone_no, unic_char)
     return nlp_doc
 
 def stats(result_dict):
