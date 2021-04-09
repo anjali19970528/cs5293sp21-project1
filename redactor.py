@@ -2,7 +2,8 @@
 import argparse
 import glob, os
 import os.path
-import main
+from project1 import main
+import sys
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -38,7 +39,7 @@ if __name__ == '__main__':
         document=f.read()
         
         if args.names:
-            print("this is names redaction")
+           # print("this is names redaction")
             names_result=main.names(document)
             result_dict["names"]=names_result[1]
 #             print("this is names pattern ++++++++++++++++++++++++++++++++++++{}\n".format(result_dict["names"]))
@@ -67,24 +68,25 @@ if __name__ == '__main__':
         if args.stats:
             print(result_dict)
             file_summary += main.stats(result_dict)
-            stats_file = args.stats
-            
-            if stats_file=="stderr":
-                stats_file_obj = open(stats_file, "w")
-                stats_file_obj.write(file_summary)
-                stats_file_obj.close()
-            else:
-                stats_file_obj = open(stats_file, "w")
-                stats_file_obj.write(file_summary)
-                stats_file_obj.close()
             
             if args.output:            
-            save_path = args.output
-            output_file = os.path.join(save_path,str(file)[:len(file)-4]+".redacted")         
+                save_path = args.output
+                output_file = os.path.join(save_path,str(file)[:len(file)-4]+".redacted")         
 #             print(output_file)
-            file_obj = open(output_file, "w",encoding = "utf-8")
-            file_obj.write(main.redacted_doc(result_dict,document))
-            file_obj.close()
+                file_obj = open(output_file, "w",encoding = "utf-8")
+                file_obj.write(main.redacted_doc(result_dict,document))
+                file_obj.close()
+    stats_file = args.stats
     if stats_file=="stdout":
         print(file_summary)
+    elif stats_file=="stderr":
+        sys.stderr.write(file_summary)
+    else:
+        stats_file_obj = open(stats_file, "w")
+        stats_file_obj.write(file_summary)
+        stats_file_obj.close()
+
+
+
+
 

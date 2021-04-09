@@ -1,10 +1,12 @@
 import spacy
 from spacy.matcher import Matcher
 import re
+import nltk
+nltk.download('wordnet')
+nltk.download('punkt')
 from nltk.corpus import wordnet
 from nltk.tokenize import sent_tokenize
 import sys
-
 nlp = spacy.load("en_core_web_sm")
 
 def names(nlp_doc):
@@ -20,7 +22,7 @@ def genders(nlp_doc):
     doc = nlp(nlp_doc)
     red_gender=[]
     matcher = Matcher(nlp.vocab)
-    pattern = [{"TEXT": {"REGEX": "^[hH]e$|^[hH]is$|^[hH]im$|^[mM]an$|^[mM]en$|^[mM]ale$|^[mM]r$|^[uU]ncle$|^[bB]rother$|^[fF]ather$|^[sS]he$|^[hH]ers$|^[wW]omen$|^[wW]oman$|^[fF]emale$|^[sS]ister$|^[aA]unt$|^[mM]rs$|^[mM]s$|^[mM]other$|^[wW]ife$|^[hH]usband$|^[sS]on$|^[dD]aughters?$"}}]
+    pattern = [{"TEXT": {"REGEX": "^[hH]e$|^[hH]is$|^[hH]im$|^[mM]an$|^[mM]en$|^[mM]ale$|^[mM]r$|^[uU]ncle$|^[bB]rother$|^[fF]ather$|^[sS]he$|^[hH]ers?$|^[wW]omen$|^[wW]oman$|^[fF]emale$|^[sS]ister$|^[aA]unt$|^[mM]rs$|^[mM]s$|^[mM]other$|^[wW]ife$|^[hH]usband$|^[sS]on$|^[dD]aughters?$"}}]
     matcher.add("GENDER", [pattern])
     matches = matcher(doc)
     for match_id, start, end in matches:
